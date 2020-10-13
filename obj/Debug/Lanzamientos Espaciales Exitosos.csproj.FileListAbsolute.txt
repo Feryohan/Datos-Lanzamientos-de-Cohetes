@@ -1,0 +1,16 @@
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\Lanzamientos Espaciales Exitosos.exe.config
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\Lanzamientos Espaciales Exitosos.exe
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\Lanzamientos Espaciales Exitosos.pdb
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\SpreadsheetLight.dll
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\SpreadsheetLight.xml
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos Espaciales Exitosos.csprojAssemblyReference.cache
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos_Espaciales_Exitosos.Form1.resources
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos_Espaciales_Exitosos.Properties.Resources.resources
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos Espaciales Exitosos.csproj.GenerateResource.cache
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos Espaciales Exitosos.csproj.CoreCompileInputs.cache
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos Espaciales Exitosos.csproj.CopyComplete
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos Espaciales Exitosos.exe
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\obj\Debug\Lanzamientos Espaciales Exitosos.pdb
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\System.IO.Packaging.dll
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\System.IO.Packaging.xml
