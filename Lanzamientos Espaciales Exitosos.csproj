@@ -97,5 +97,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="FuncionesEstadistica\FuncionesEstadistica.csproj">
+      <Project>{5d014219-14d3-4779-b8f3-325a8dbf7f95}</Project>
+      <Name>FuncionesEstadistica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

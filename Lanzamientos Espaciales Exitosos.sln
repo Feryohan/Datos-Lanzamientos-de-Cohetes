@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lanzamientos Espaciales Exitosos", "Lanzamientos Espaciales Exitosos.csproj", "{4F3A11EB-AE58-4C1A-B2A8-FB92237435C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zona de Pruebas", "Zona de Pruebas\Zona de Pruebas.csproj", "{3021D11A-AB9B-4591-B367-20F1B028AB9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuncionesEstadistica", "FuncionesEstadistica\FuncionesEstadistica.csproj", "{5D014219-14D3-4779-B8F3-325A8DBF7F95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4F3A11EB-AE58-4C1A-B2A8-FB92237435C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F3A11EB-AE58-4C1A-B2A8-FB92237435C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F3A11EB-AE58-4C1A-B2A8-FB92237435C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3021D11A-AB9B-4591-B367-20F1B028AB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3021D11A-AB9B-4591-B367-20F1B028AB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3021D11A-AB9B-4591-B367-20F1B028AB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3021D11A-AB9B-4591-B367-20F1B028AB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D014219-14D3-4779-B8F3-325A8DBF7F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D014219-14D3-4779-B8F3-325A8DBF7F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D014219-14D3-4779-B8F3-325A8DBF7F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D014219-14D3-4779-B8F3-325A8DBF7F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

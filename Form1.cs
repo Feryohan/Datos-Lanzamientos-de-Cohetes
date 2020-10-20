@@ -43,12 +43,12 @@ namespace Lanzamientos_Espaciales_Exitosos
 
             //Medidas del gráfico
             chart.AxisX.Minimum = 1970;
-            chart.AxisX.Maximum = 2019;
-            chart.AxisX.Interval = 1;
+            chart.AxisX.Maximum = 2020;
+            chart.AxisX.Interval = 5;
 
             chart.AxisY.Minimum = 0;
-            chart.AxisY.Maximum = 130;
-            chart.AxisY.Interval = 10;
+            chart.AxisY.Maximum = 140;
+            chart.AxisY.Interval = 28;
 
             //Diseño de la gráfica
             chart1.Series.Add("Lanzamientos");
@@ -100,38 +100,18 @@ namespace Lanzamientos_Espaciales_Exitosos
             //Haciendo que la lista aparezca en la pantalla
             dataGridView1.DataSource = lstLanzamiento;
 
-            //Calculando el promedio
-            double suma = 0;
-            //For que recorre todos los elementos del arreglo
-            foreach(var lanzamiento in arregloLanzamientos)
-            {
-                suma += lanzamiento;
-            }
+            //Mostrando Promedio
+            txtBoxPromedio.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Mean(arregloLanzamientos));
+            //Mostrando Valor Maximo
+            txtBoxMax.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Max(arregloLanzamientos));
+            //Mostrando Valor Minimo
+            txtBoxMin.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Min(arregloLanzamientos));
+            //Mostrando Varianza
+            txtBoxVarianza.Text = Convert.ToString(FuncionesEstadistica.Matlab2.VarP(arregloLanzamientos));
+            //Mostrando Desviación Estandar
+            txtBoxSTD.Text = Convert.ToString(FuncionesEstadistica.Matlab2.StdP(arregloLanzamientos));
 
-            double promedio = suma / arregloLanzamientos.Length;
-
-            txtBoxPromedio.Text = Convert.ToString(promedio);
-
-            //Obteniendo el valor máximo y mínimo
-            int min;
-            int max;
-
-            min = max = arregloLanzamientos[0];
-
-            for (int i = 0; i < 49; i++)
-            {
-                if (min > arregloLanzamientos[i])
-                {
-                    min = arregloLanzamientos[i];
-                }
-                if (max < arregloLanzamientos[i])
-                {
-                    max = arregloLanzamientos[i];
-                }
-            }
-
-            txtBoxMax.Text = Convert.ToString(max);
-            txtBoxMin.Text = Convert.ToString(min);
+           
 
         }
     }

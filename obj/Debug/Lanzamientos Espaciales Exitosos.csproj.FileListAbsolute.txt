@@ -14,3 +14,5 @@ C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\L
 C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\System.IO.Packaging.dll
 C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\System.IO.Packaging.xml
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\FuncionesEstadistica.dll
+C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\bin\Debug\FuncionesEstadistica.pdb
