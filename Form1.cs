@@ -16,7 +16,10 @@ namespace Lanzamientos_Espaciales_Exitosos
     public partial class Form1 : Form
     {
 
-
+        double media;
+        double maximoValor;
+        double minimoValor;
+        double stdp;
         //Página para descargar íconos gratis
         //https://iconarchive.com/
 
@@ -28,7 +31,6 @@ namespace Lanzamientos_Espaciales_Exitosos
             InitializeComponent();
             
         }
-
 
         //Método cuando la pantalla se carga
         public void Form1_Load(object sender, EventArgs e)
@@ -105,38 +107,38 @@ namespace Lanzamientos_Espaciales_Exitosos
 
             //Mostrando Promedio
             txtBoxPromedio.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Mean(arregloCalificaciones));
-            double promedio = FuncionesEstadistica.Matlab1.Mean(arregloCalificaciones);
+            media = FuncionesEstadistica.Matlab1.Mean(arregloCalificaciones);
             //Mostrando Valor Maximo
             txtBoxMax.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Max(arregloCalificaciones));
-            double maximoValor = FuncionesEstadistica.Matlab1.Max(arregloCalificaciones);
+            maximoValor = FuncionesEstadistica.Matlab1.Max(arregloCalificaciones);
             //Mostrando Valor Minimo
             txtBoxMin.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Min(arregloCalificaciones));
-            double minimoValor = FuncionesEstadistica.Matlab1.Min(arregloCalificaciones);
+            minimoValor = FuncionesEstadistica.Matlab1.Min(arregloCalificaciones);
             //Mostrando Varianza
             txtBoxVarianza.Text = Convert.ToString(Math.Round(FuncionesEstadistica.Matlab2.VarP(arregloCalificaciones),4));
             //Mostrando Desviación Estandar
             txtBoxSTD.Text = Convert.ToString(Math.Round(FuncionesEstadistica.Matlab2.StdP(arregloCalificaciones),4));
-            double stdp = FuncionesEstadistica.Matlab2.StdP(arregloCalificaciones);
+            stdp = FuncionesEstadistica.Matlab2.StdP(arregloCalificaciones);
 
-            txtBoxDEP1Arriba.Text = Convert.ToString(Math.Round(promedio + stdp,4));
-            txtBoxDEP2Arriba.Text = Convert.ToString(Math.Round(promedio + (2*stdp), 4));
-            txtBoxDEP3Arriba.Text = Convert.ToString(Math.Round(promedio + (3 * stdp), 4));
-            txtBoxDEP4Arriba.Text = Convert.ToString(Math.Round(promedio + (4 * stdp), 4));
+            txtBoxDEP1Arriba.Text = Convert.ToString(Math.Round(media + stdp,4));
+            txtBoxDEP2Arriba.Text = Convert.ToString(Math.Round(media + (2*stdp), 4));
+            txtBoxDEP3Arriba.Text = Convert.ToString(Math.Round(media + (3 * stdp), 4));
+            txtBoxDEP4Arriba.Text = Convert.ToString(Math.Round(media + (4 * stdp), 4));
 
-            txtBoxDEP1Abajo.Text = Convert.ToString(Math.Round(promedio - stdp, 4));
-            txtBoxDEP2Abajo.Text = Convert.ToString(Math.Round(promedio - (2 * stdp), 4));
-            txtBoxDEP3Abajo.Text = Convert.ToString(Math.Round(promedio - (3 * stdp), 4));
-            txtBoxDEP4Abajo.Text = Convert.ToString(Math.Round(promedio - (4 * stdp), 4));
+            txtBoxDEP1Abajo.Text = Convert.ToString(Math.Round(media - stdp, 4));
+            txtBoxDEP2Abajo.Text = Convert.ToString(Math.Round(media - (2 * stdp), 4));
+            txtBoxDEP3Abajo.Text = Convert.ToString(Math.Round(media - (3 * stdp), 4));
+            txtBoxDEP4Abajo.Text = Convert.ToString(Math.Round(media - (4 * stdp), 4));
 
             //Imprimiendo la línea de promedio
             chart1.Series.Add("Promedio");
             chart1.Series["Promedio"].ChartType = SeriesChartType.Line;
             chart1.Series["Promedio"].Color = Color.Red;
             chart1.Series["Promedio"].IsVisibleInLegend = false;
-            alumno = 1970;
+            alumno = 1;
             for (int i = 0; i<arregloCalificaciones.Length; i++)
             {
-                chart1.Series["Promedio"].Points.AddXY(alumno+i, promedio);
+                chart1.Series["Promedio"].Points.AddXY(alumno+i, media);
             }
 
             //Imprimiendo la desviacion estandar hacía arriba
@@ -148,8 +150,8 @@ namespace Lanzamientos_Espaciales_Exitosos
                 chart1.Series[serie].Color = Color.Blue;
                 chart1.Series[serie].IsVisibleInLegend = false;
 
-                double posicion = promedio + (stdp * i);
-                alumno = 1970;
+                double posicion = media + (stdp * i);
+                alumno = 1;
                 for (int j = 0; j < arregloCalificaciones.Length; j++)
                 {
                     chart1.Series[serie].Points.AddXY(alumno + j, posicion);
@@ -165,13 +167,19 @@ namespace Lanzamientos_Espaciales_Exitosos
                 chart1.Series[serie].Color = Color.Green;
                 chart1.Series[serie].IsVisibleInLegend = false;
 
-                double posicion = promedio - (stdp * i);
-                alumno = 1970;
+                double posicion = media - (stdp * i);
+                alumno = 1;
                 for (int j = 0; j < arregloCalificaciones.Length; j++)
                 {
                     chart1.Series[serie].Points.AddXY(alumno + j, posicion);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(media,minimoValor,maximoValor,stdp);
+            form2.Show();
         }
     }
 }

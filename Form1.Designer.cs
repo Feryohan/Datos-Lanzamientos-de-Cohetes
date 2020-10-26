@@ -63,6 +63,7 @@
             this.txtBoxDEP3Abajo = new System.Windows.Forms.TextBox();
             this.txtBoxDEP4Abajo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -360,6 +361,15 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Función de Densidad";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar1.Location = new System.Drawing.Point(1350, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(20, 714);
+            this.vScrollBar1.TabIndex = 6;
             // 
             // Form1
             // 
@@ -367,6 +377,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(1370, 714);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.txtBoxMax);
@@ -446,6 +457,7 @@
         private System.Windows.Forms.TextBox txtBoxDEP3Abajo;
         private System.Windows.Forms.TextBox txtBoxDEP4Abajo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
 
