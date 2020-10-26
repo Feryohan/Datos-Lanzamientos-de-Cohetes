@@ -59,7 +59,7 @@ namespace FuncionesEstadistica
             {
                 int min = arreglo[0];
 
-                for(int i = 0; i<arreglo.Length-1; i++)
+                for(int i = 0; i<arreglo.Length; i++)
                 {
                     if(min > arreglo[i])
                     {
@@ -85,7 +85,7 @@ namespace FuncionesEstadistica
             {
                 int max = arreglo[0];
 
-                for (int i = 0; i < arreglo.Length - 1; i++)
+                for (int i = 0; i < arreglo.Length ; i++)
                 {
                     if (max < arreglo[i])
                     {

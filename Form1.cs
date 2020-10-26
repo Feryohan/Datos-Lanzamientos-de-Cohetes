@@ -16,20 +16,22 @@ namespace Lanzamientos_Espaciales_Exitosos
     public partial class Form1 : Form
     {
 
+
         //Página para descargar íconos gratis
         //https://iconarchive.com/
 
         //Ingresamos la dirección del archivo excel 
-        private string path = @"C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\50datosdelanzamientosexitosos.xlsx";
+        private string path = @"C:\Users\SERGIO ROMO\Documents\Semestre 2021-1\Temas Selectos de Programación\Lanzamientos Espaciales Exitosos\50DatosDeCalificacionesCurso.xlsx";
 
         public Form1()
         {
             InitializeComponent();
+            
         }
 
 
         //Método cuando la pantalla se carga
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             //Construcción de la gráfica
             //El área de los rectángulos es cero
@@ -42,20 +44,21 @@ namespace Lanzamientos_Espaciales_Exitosos
             chart.AxisY.LabelStyle.IsEndLabelVisible = true;
 
             //Medidas del gráfico
-            chart.AxisX.Minimum = 1970;
-            chart.AxisX.Maximum = 2020;
-            chart.AxisX.Interval = 5;
+            chart.AxisX.Minimum = 1;
+            chart.AxisX.Maximum = 50;
+            chart.AxisX.Interval = 10;
 
             chart.AxisY.Minimum = 0;
-            chart.AxisY.Maximum = 140;
-            chart.AxisY.Interval = 28;
+            chart.AxisY.Maximum = 100;
+            chart.AxisY.Interval = 20;
 
             //Diseño de la gráfica
-            chart1.Series.Add("Lanzamientos");
-            chart1.Series["Lanzamientos"].ChartType = SeriesChartType.Line;
-            chart1.Series["Lanzamientos"].Color = Color.Purple;
-            chart1.Series["Lanzamientos"].IsVisibleInLegend = false;
+            chart1.Series.Add("Calificaciones");
+            chart1.Series["Calificaciones"].ChartType = SeriesChartType.Line;
+            chart1.Series["Calificaciones"].Color = Color.Purple;
+            chart1.Series["Calificaciones"].IsVisibleInLegend = false;
 
+            
 
 
             //Creando nuevo objeto que recibe el path donde se encuentra el excel
@@ -67,52 +70,108 @@ namespace Lanzamientos_Espaciales_Exitosos
             //El indice, para la fila, empieza en el dos
             int iRow = 2;
 
-            int año;
+            int alumno;
 
             //Creación de la lista
-            List<LanzamientosViewModel> lstLanzamiento = new List<LanzamientosViewModel>();
+            List<CalificacionesViewModel> lstCalificaciones = new List<CalificacionesViewModel>();
 
             //Creación del arreglo 
-            int[] arregloLanzamientos = new int[50];
+            int[] arregloCalificaciones = new int[50];
 
             //El ciclo while se aplica hasta que no se encuentre un registro vacío
             //fila/columna
             while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow,1)))
             {
                 //Creación del apuntador
-                LanzamientosViewModel oLanzamiento = new LanzamientosViewModel();
-                oLanzamiento.Año = sl.GetCellValueAsString(iRow,1);
-                oLanzamiento.LanzamientosOrbitalesExitosos = sl.GetCellValueAsInt32(iRow, 2);
+                CalificacionesViewModel oCalificaciones = new CalificacionesViewModel();
+                oCalificaciones.Estudiante = sl.GetCellValueAsString(iRow,1);
+                oCalificaciones.CalificacionDelCurso = sl.GetCellValueAsInt32(iRow, 2);
 
-                año = iRow + 1968;
+                alumno = iRow -1;
 
-                chart1.Series["Lanzamientos"].Points.AddXY(año, sl.GetCellValueAsInt32(iRow,2));
+                chart1.Series["Calificaciones"].Points.AddXY(alumno, sl.GetCellValueAsInt32(iRow,2));
 
                 //Se añade al arreglo
-                arregloLanzamientos[iRow-2] = oLanzamiento.LanzamientosOrbitalesExitosos;
+                arregloCalificaciones[iRow-2] = oCalificaciones.CalificacionDelCurso;
 
                 //Se añaden a la lista
-                lstLanzamiento.Add(oLanzamiento);
+                lstCalificaciones.Add(oCalificaciones);
 
                 iRow++;
             }
 
             //Haciendo que la lista aparezca en la pantalla
-            dataGridView1.DataSource = lstLanzamiento;
+            dataGridView1.DataSource = lstCalificaciones;
 
             //Mostrando Promedio
-            txtBoxPromedio.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Mean(arregloLanzamientos));
+            txtBoxPromedio.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Mean(arregloCalificaciones));
+            double promedio = FuncionesEstadistica.Matlab1.Mean(arregloCalificaciones);
             //Mostrando Valor Maximo
-            txtBoxMax.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Max(arregloLanzamientos));
+            txtBoxMax.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Max(arregloCalificaciones));
+            double maximoValor = FuncionesEstadistica.Matlab1.Max(arregloCalificaciones);
             //Mostrando Valor Minimo
-            txtBoxMin.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Min(arregloLanzamientos));
+            txtBoxMin.Text = Convert.ToString(FuncionesEstadistica.Matlab1.Min(arregloCalificaciones));
+            double minimoValor = FuncionesEstadistica.Matlab1.Min(arregloCalificaciones);
             //Mostrando Varianza
-            txtBoxVarianza.Text = Convert.ToString(FuncionesEstadistica.Matlab2.VarP(arregloLanzamientos));
+            txtBoxVarianza.Text = Convert.ToString(Math.Round(FuncionesEstadistica.Matlab2.VarP(arregloCalificaciones),4));
             //Mostrando Desviación Estandar
-            txtBoxSTD.Text = Convert.ToString(FuncionesEstadistica.Matlab2.StdP(arregloLanzamientos));
+            txtBoxSTD.Text = Convert.ToString(Math.Round(FuncionesEstadistica.Matlab2.StdP(arregloCalificaciones),4));
+            double stdp = FuncionesEstadistica.Matlab2.StdP(arregloCalificaciones);
 
-           
+            txtBoxDEP1Arriba.Text = Convert.ToString(Math.Round(promedio + stdp,4));
+            txtBoxDEP2Arriba.Text = Convert.ToString(Math.Round(promedio + (2*stdp), 4));
+            txtBoxDEP3Arriba.Text = Convert.ToString(Math.Round(promedio + (3 * stdp), 4));
+            txtBoxDEP4Arriba.Text = Convert.ToString(Math.Round(promedio + (4 * stdp), 4));
 
+            txtBoxDEP1Abajo.Text = Convert.ToString(Math.Round(promedio - stdp, 4));
+            txtBoxDEP2Abajo.Text = Convert.ToString(Math.Round(promedio - (2 * stdp), 4));
+            txtBoxDEP3Abajo.Text = Convert.ToString(Math.Round(promedio - (3 * stdp), 4));
+            txtBoxDEP4Abajo.Text = Convert.ToString(Math.Round(promedio - (4 * stdp), 4));
+
+            //Imprimiendo la línea de promedio
+            chart1.Series.Add("Promedio");
+            chart1.Series["Promedio"].ChartType = SeriesChartType.Line;
+            chart1.Series["Promedio"].Color = Color.Red;
+            chart1.Series["Promedio"].IsVisibleInLegend = false;
+            alumno = 1970;
+            for (int i = 0; i<arregloCalificaciones.Length; i++)
+            {
+                chart1.Series["Promedio"].Points.AddXY(alumno+i, promedio);
+            }
+
+            //Imprimiendo la desviacion estandar hacía arriba
+            for (int i = 1; i < 5; i++)
+            {
+                string serie = "DesviacionArriba" + Convert.ToString(i);
+                chart1.Series.Add(serie);
+                chart1.Series[serie].ChartType = SeriesChartType.Line;
+                chart1.Series[serie].Color = Color.Blue;
+                chart1.Series[serie].IsVisibleInLegend = false;
+
+                double posicion = promedio + (stdp * i);
+                alumno = 1970;
+                for (int j = 0; j < arregloCalificaciones.Length; j++)
+                {
+                    chart1.Series[serie].Points.AddXY(alumno + j, posicion);
+                }
+            }
+
+            //Imprimiendo la desviacion estandar hacía abajo
+            for (int i = 1; i < 5; i++)
+            {
+                string serie = "DesviacionAbajo" + Convert.ToString(i);
+                chart1.Series.Add(serie);
+                chart1.Series[serie].ChartType = SeriesChartType.Line;
+                chart1.Series[serie].Color = Color.Green;
+                chart1.Series[serie].IsVisibleInLegend = false;
+
+                double posicion = promedio - (stdp * i);
+                alumno = 1970;
+                for (int j = 0; j < arregloCalificaciones.Length; j++)
+                {
+                    chart1.Series[serie].Points.AddXY(alumno + j, posicion);
+                }
+            }
         }
     }
 }

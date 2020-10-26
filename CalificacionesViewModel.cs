@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lanzamientos_Espaciales_Exitosos
 {
-    public class LanzamientosViewModel
+    public class CalificacionesViewModel
     {
-        public string Año { get; set; }
-        public int LanzamientosOrbitalesExitosos { get; set; }
+        public string Estudiante { get; set; }
+        public int CalificacionDelCurso { get; set; }
     }
 }
