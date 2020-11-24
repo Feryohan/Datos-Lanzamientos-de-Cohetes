@@ -62,8 +62,12 @@
             this.txtBoxDEP2Abajo = new System.Windows.Forms.TextBox();
             this.txtBoxDEP3Abajo = new System.Windows.Forms.TextBox();
             this.txtBoxDEP4Abajo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFuncionDensidad = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.txtBuscar1 = new System.Windows.Forms.TextBox();
+            this.btnBuscar1 = new System.Windows.Forms.Button();
+            this.txtBuscar2 = new System.Windows.Forms.TextBox();
+            this.btnBuscar2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -71,20 +75,20 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 148);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(424, 623);
+            this.dataGridView1.Size = new System.Drawing.Size(424, 524);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 9);
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(469, 24);
+            this.label1.Size = new System.Drawing.Size(475, 35);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Calificaciones de Ingeniería de Manufactura 2020-2";
+            this.label1.Text = "Programa de estadística para alturas";
             // 
             // label2
             // 
@@ -92,9 +96,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(463, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(270, 16);
+            this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Promedio de lanzamientos exitosos por año";
+            this.label2.Text = "Promedio";
             // 
             // txtBoxPromedio
             // 
@@ -158,9 +162,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(722, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.Size = new System.Drawing.Size(115, 16);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Varianza P.";
+            this.label5.Text = "Varianza Muestral";
             // 
             // txtBoxVarianza
             // 
@@ -176,9 +180,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(722, 172);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 16);
+            this.label6.Size = new System.Drawing.Size(147, 16);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Desviación Estandar P.";
+            this.label6.Text = "Desviación Estandar M";
             // 
             // txtBoxSTD
             // 
@@ -352,16 +356,18 @@
             this.txtBoxDEP4Abajo.Size = new System.Drawing.Size(107, 22);
             this.txtBoxDEP4Abajo.TabIndex = 3;
             // 
-            // button1
+            // btnFuncionDensidad
             // 
-            this.button1.BackColor = System.Drawing.Color.GreenYellow;
-            this.button1.Location = new System.Drawing.Point(928, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Función de Densidad";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFuncionDensidad.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnFuncionDensidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionDensidad.Location = new System.Drawing.Point(928, 218);
+            this.btnFuncionDensidad.Name = "btnFuncionDensidad";
+            this.btnFuncionDensidad.Size = new System.Drawing.Size(166, 36);
+            this.btnFuncionDensidad.TabIndex = 5;
+            this.btnFuncionDensidad.Text = "Función de Densidad";
+            this.btnFuncionDensidad.UseVisualStyleBackColor = false;
+            this.btnFuncionDensidad.Visible = false;
+            this.btnFuncionDensidad.Click += new System.EventHandler(this.btnFuncionDensidad_Click);
             // 
             // vScrollBar1
             // 
@@ -371,14 +377,56 @@
             this.vScrollBar1.Size = new System.Drawing.Size(20, 714);
             this.vScrollBar1.TabIndex = 6;
             // 
+            // txtBuscar1
+            // 
+            this.txtBuscar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar1.Location = new System.Drawing.Point(33, 74);
+            this.txtBuscar1.Name = "txtBuscar1";
+            this.txtBuscar1.Size = new System.Drawing.Size(226, 22);
+            this.txtBuscar1.TabIndex = 3;
+            this.txtBuscar1.Text = "Archivo 1";
+            // 
+            // btnBuscar1
+            // 
+            this.btnBuscar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar1.Location = new System.Drawing.Point(277, 73);
+            this.btnBuscar1.Name = "btnBuscar1";
+            this.btnBuscar1.Size = new System.Drawing.Size(92, 23);
+            this.btnBuscar1.TabIndex = 7;
+            this.btnBuscar1.Text = "Buscar";
+            this.btnBuscar1.UseVisualStyleBackColor = true;
+            this.btnBuscar1.Click += new System.EventHandler(this.btnBuscar1_Click);
+            // 
+            // txtBuscar2
+            // 
+            this.txtBuscar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar2.Location = new System.Drawing.Point(33, 104);
+            this.txtBuscar2.Name = "txtBuscar2";
+            this.txtBuscar2.Size = new System.Drawing.Size(226, 22);
+            this.txtBuscar2.TabIndex = 3;
+            this.txtBuscar2.Text = "Archivo 2";
+            // 
+            // btnBuscar2
+            // 
+            this.btnBuscar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar2.Location = new System.Drawing.Point(277, 102);
+            this.btnBuscar2.Name = "btnBuscar2";
+            this.btnBuscar2.Size = new System.Drawing.Size(92, 23);
+            this.btnBuscar2.TabIndex = 7;
+            this.btnBuscar2.Text = "Buscar";
+            this.btnBuscar2.UseVisualStyleBackColor = true;
+            this.btnBuscar2.Click += new System.EventHandler(this.btnBuscar2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Khaki;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1370, 714);
+            this.Controls.Add(this.btnBuscar2);
+            this.Controls.Add(this.btnBuscar1);
             this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnFuncionDensidad);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.txtBoxMax);
             this.Controls.Add(this.label4);
@@ -406,6 +454,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBoxMin);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtBuscar2);
+            this.Controls.Add(this.txtBuscar1);
             this.Controls.Add(this.txtBoxPromedio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -413,7 +463,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calificaciones Ing. de Manufactura";
+            this.Text = "Alturas Hombres / Perros Schnauzer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -456,8 +506,12 @@
         private System.Windows.Forms.TextBox txtBoxDEP2Abajo;
         private System.Windows.Forms.TextBox txtBoxDEP3Abajo;
         private System.Windows.Forms.TextBox txtBoxDEP4Abajo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFuncionDensidad;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.TextBox txtBuscar1;
+        private System.Windows.Forms.Button btnBuscar1;
+        private System.Windows.Forms.TextBox txtBuscar2;
+        private System.Windows.Forms.Button btnBuscar2;
     }
 }
 
