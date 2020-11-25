@@ -13,7 +13,7 @@ namespace FuncionesEstadistica
     {
         #region Variables Globales 
         double media, varianza, destd, max, min;
-
+        double pendiente, ordenada;
         #endregion
 
         #region Constructores
@@ -26,6 +26,8 @@ namespace FuncionesEstadistica
             this.media = 0;
             this.varianza = 4;
             this.destd = 2;
+            this.pendiente = 0;
+            this.ordenada = 0;
         }
 
         #endregion
@@ -44,12 +46,12 @@ namespace FuncionesEstadistica
 
         #region SUMA
         //Método que calcula la suma de todos los elementos de un arreglo
-        public static int Sum(int[] arreglo)
+        public static double Sum(double[] arreglo)
         {
             //El arreglo tiene que tener 2 o más elementos para hacer la suma
             if (arreglo.Length > 2)
             {
-                int sum = arreglo[0];
+                double sum = arreglo[0];
 
                 for (int i = 1; i <= arreglo.Length - 1; i++)
                 {
@@ -67,7 +69,7 @@ namespace FuncionesEstadistica
 
         #region PROMEDIO
         //Método que calcula el promedio de los elementos de un arreglo
-        public static double Mean(int[] arreglo)
+        public static double Mean(double[] arreglo)
         {
             //El promedio solo se calcula si el arreglo tiene más de 2 elementos
             if (arreglo.Length > 2)
@@ -85,11 +87,11 @@ namespace FuncionesEstadistica
 
         #region MINIMO
         //Método que calcula el mínimo valor 
-        public static int Min (int[] arreglo)
+        public static double Min (double[] arreglo)
         {
             if (arreglo.Length > 2)
             {
-                int min = arreglo[0];
+                double min = arreglo[0];
 
                 for(int i = 0; i<arreglo.Length; i++)
                 {
@@ -111,11 +113,11 @@ namespace FuncionesEstadistica
 
         #region MAXIMO
         //Método que calcula el mínimo valor 
-        public static int Max(int[] arreglo)
+        public static double Max(double[] arreglo)
         {
             if (arreglo.Length > 2)
             {
-                int max = arreglo[0];
+                double max = arreglo[0];
 
                 for (int i = 0; i < arreglo.Length ; i++)
                 {
@@ -137,7 +139,7 @@ namespace FuncionesEstadistica
 
         #region Varianza Poblacion
         //Método que calcula la varianza en función de toda la población
-        public static double VarP(int[] arreglo)
+        public static double VarP(double[] arreglo)
         {
             if (arreglo.Length > 2)
             {
@@ -164,7 +166,7 @@ namespace FuncionesEstadistica
 
         #region Desviación Estandar Población
         //Metodo que calcula la desviación estandar de una población
-        public static double StdP(int[] arreglo)
+        public static double StdP(double[] arreglo)
         {
             if (arreglo.Length > 2)
             {
@@ -180,7 +182,7 @@ namespace FuncionesEstadistica
 
         #region Varianza Muestra
         //Método que calcula la varianza en función de una muestra
-        public static double VarM(int[] arreglo)
+        public static double VarM(double[] arreglo)
         {
             if (arreglo.Length > 2)
             {
@@ -207,7 +209,7 @@ namespace FuncionesEstadistica
 
         #region Desviación Estandar Muestra
         //Metodo que calcula la desviación estandar de una población
-        public static double StdM(int[] arreglo)
+        public static double StdM(double[] arreglo)
         {
             if (arreglo.Length > 2)
             {
@@ -327,6 +329,72 @@ namespace FuncionesEstadistica
             double probabilidadTrapZ = (paso/2) * (suma);
 
             return probabilidadTrapZ;
+        }
+        #endregion
+
+        #region Regresión lineal
+        public static double Pendiente(double [] ejeX, double [] ejeY)
+        {
+            double pendiente;
+            int n = ejeX.Length;
+            double[] XporY = new double[n];
+            double[] Xcuadrada = new double[n];
+            double sumaXporY = 0;
+            double sumaX = 0;
+            double sumaY = 0;
+            double sumaXcuadrada = 0;
+            for(int i = 0; i<n; i++)
+            {
+                //Arreglos
+                XporY[i] = ejeX[i] * ejeY[i];
+                Xcuadrada[i] = Math.Pow(ejeX[i], 2);
+                //Sumas
+                sumaXporY = sumaXporY + XporY[i];
+                sumaX = sumaX + ejeX[i];
+                sumaY = sumaY + ejeY[i];
+                sumaXcuadrada = sumaXcuadrada + Xcuadrada[i];
+            }
+
+            pendiente = ((n * sumaXporY) - (sumaX * sumaY)) / ((n * sumaXcuadrada) - Math.Pow(Math.Abs(sumaX), 2));
+
+            return pendiente;
+        }
+
+        public static double Ordenada(double[] ejeX, double[] ejeY)
+        {
+            double ordenada;
+            int n = ejeX.Length;
+            double[] XporY = new double[n];
+            double[] Xcuadrada = new double[n];
+            double sumaXporY = 0;
+            double sumaX = 0;
+            double sumaY = 0;
+            double sumaXcuadrada = 0;
+            for (int i = 0; i < n; i++)
+            {
+                //Arreglos
+                XporY[i] = ejeX[i] * ejeY[i];
+                Xcuadrada[i] = Math.Pow(ejeX[i], 2);
+                //Sumas
+                sumaXporY = sumaXporY + XporY[i];
+                sumaX = sumaX + ejeX[i];
+                sumaY = sumaY + ejeY[i];
+                sumaXcuadrada = sumaXcuadrada + Xcuadrada[i];
+            }
+
+            ordenada = ((sumaY*sumaXcuadrada)-(sumaX*sumaXporY)) / ((n*sumaXcuadrada)-(Math.Pow(Math.Abs(sumaX),2)));
+
+            return ordenada;
+        }
+
+        public static double[] RegresionLineal(double[] ejeX, double pendiente, double ordenada)
+        {
+            double[] regresionLineal = new double[ejeX.Length];
+            for(int i=0; i<ejeX.Length; i++)
+            {
+                regresionLineal[i] = (pendiente * ejeX[i]) + ordenada;
+            }
+            return regresionLineal;
         }
         #endregion
     }

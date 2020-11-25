@@ -66,7 +66,7 @@ namespace Lanzamientos_Espaciales_Exitosos
 
         #region LecturaExcel
         //Método que lee los datos del archivo de Excel y los guarda en una lista
-        public static List<int> LecturaExcel(string rutaArchivo)
+        public static List<double> LecturaExcel(string rutaArchivo)
         {
             //Creando nuevo objeto SLDocument que recibe el path donde se encuentra el Excel
             SLDocument sl = new SLDocument(rutaArchivo);
@@ -78,7 +78,7 @@ namespace Lanzamientos_Espaciales_Exitosos
             int iRow = 2;
 
             //Creación de la lista para leer las alturas
-            List<int> lstLectuaExcel = new List<int>();
+            List<double> lstLectuaExcel = new List<double>();
             
             //El ciclo while se aplica hasta que no se encuentre un registro vacío
                                                                 //fila/columna
@@ -96,7 +96,7 @@ namespace Lanzamientos_Espaciales_Exitosos
 
         #region Gráfica
         //Construcción de la gráfica
-        public void Grafica(int[] datos, string nombreSerie, double minimoValor, double maximoValor, double promedio, double desviacionEstandar)
+        public void Grafica(double[] datos, string nombreSerie, double minimoValor, double maximoValor, double promedio, double desviacionEstandar)
         {
             //El área de los rectángulos es cero
             var chart = chart1.ChartAreas[0];

@@ -225,6 +225,7 @@ namespace Lanzamientos_Espaciales_Exitosos
         {
             double[] valorAnalizar = new double[1];
             valorAnalizar[0] = Convert.ToDouble(txtBoxPuntoAnalizar.Text);
+            //Son arreglos double[] porque el método Normpdf los solicita como entrada
             double[] likeli1 = FuncionesEstadistica.Matlab.Normpdf(valorAnalizar, media1, stdm1);
             double[] likeli2 = FuncionesEstadistica.Matlab.Normpdf(valorAnalizar, media2, stdm2);
 
